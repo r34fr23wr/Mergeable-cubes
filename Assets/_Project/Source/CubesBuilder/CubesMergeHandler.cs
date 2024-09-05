@@ -1,5 +1,6 @@
 using UnityEngine;
 using Source.Cubes;
+using System;
 
 namespace Source.CubesBuilder
 {
@@ -7,8 +8,7 @@ namespace Source.CubesBuilder
     {
         public void DoMerge(CubeCollision cubeToDesroy, CubeCollision cubeToMerge)
         {
-            //GameObject.Destroy(cubeToDesroy.gameObject);
-            cubeToDesroy.ShowObject();
+            cubeToDesroy.HideObject();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ServiceLocator
 {
     public static ServiceLocator Instance { get; private set;}
-    private readonly Dictionary<Type, object> _services = new Dictionary<Type, object>();
+    private Dictionary<Type, object> _services = new Dictionary<Type, object>();
 
     public ServiceLocator() => Instance = this;
 

@@ -1,29 +1,29 @@
 using UnityEngine;
 using Source.CubesBuilder;
 using Source.Cubes;
+using Source.UI;
 
 namespace Source.Infrastructure
 {
     public class CoreEntryPoint : MonoBehaviour, IService
     {
         [SerializeField] private Transform[] _spawnPoints;
-        [SerializeField] private Coroutines _coroutines;
+        [SerializeField] private PlayGameButton _playGameButton;
         [SerializeField] private Cube _cubePrefab;
-
-        private ServiceLocator _serviceLocator;
-        private CubesPool _cubesPool;
-        private GameStateObserver _gameStateObserver;
 
         private void Awake()
         {
-            _serviceLocator = new ServiceLocator();
-            _gameStateObserver = new GameStateObserver();
+            ServiceLocator serviceLocator = new ServiceLocator();
+
+            CoreStateObserver coreStateObserver = new CoreStateObserver(_spawnPoints.Length, _playGameButton.gameObject);
+            coreStateObserver.Configure();
+            serviceLocator.Register(coreStateObserver);
 
             CubesMergeHandler cubesMergeHandler = new CubesMergeHandler();
-            _serviceLocator.Register(cubesMergeHandler);
+            serviceLocator.Register(cubesMergeHandler);
 
-            _cubesPool = new CubesPool(_cubePrefab, _spawnPoints);
-            _serviceLocator.Register(_cubesPool);
+            CubesPool cubesPool = new CubesPool(_cubePrefab, _spawnPoints);
+            serviceLocator.Register(cubesPool);
         }
     }
 }

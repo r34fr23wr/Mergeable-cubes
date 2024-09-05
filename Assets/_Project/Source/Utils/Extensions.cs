@@ -1,40 +1,35 @@
 using UnityEngine;
 
-namespace Source
+public static class Extensions
 {
-    public static class Extensions
+    public static T InstantiateObject<T>(T prefab) where T : MonoBehaviour
     {
-        public static T InstantiateObject<T>(T prefab) where T : MonoBehaviour
-        {
-            T spawnedObject = Object.Instantiate(prefab);
+        T spawnedObject = Object.Instantiate(prefab);
 
-            return spawnedObject;
-        }
+        return spawnedObject;
+    }
 
-        public static T InstantiateObject<T>(T prefab, Vector3 position) where T : MonoBehaviour
-        {
-            T spawnedObject = Object.Instantiate(prefab, position, Quaternion.identity);
+    public static T InstantiateObject<T>(T prefab, Vector3 position) where T : MonoBehaviour
+    {
+        T spawnedObject = Object.Instantiate(prefab, position, Quaternion.identity);
 
-            return spawnedObject;
-        }
+        return spawnedObject;
+    }
 
-        public static T InstantiateObject<T>(T prefab, Vector3 position, Transform parent) where T : MonoBehaviour
-        {
-            T spawnedObject = Object.Instantiate(prefab, position, Quaternion.identity, parent);
+    public static T InstantiateObject<T>(T prefab, Vector3 position, Transform parent) where T : MonoBehaviour
+    {
+        T spawnedObject = Object.Instantiate(prefab, position, Quaternion.identity, parent);
 
-            return spawnedObject;
-        }
+        return spawnedObject;
+    }
 
-        public static void ShowObject(this MonoBehaviour monoBehaviour)
-        {
-            if(monoBehaviour != null)
-                monoBehaviour.gameObject.SetActive(false);
-        }
+    public static void ShowObject(this MonoBehaviour monoBehaviour)
+    {
+        if(monoBehaviour != null) monoBehaviour.gameObject.SetActive(true);
+    }
 
-        public static void HideObject(this MonoBehaviour monoBehaviour)
-        {
-            if(monoBehaviour != null)
-                monoBehaviour.gameObject.SetActive(false);
-        }
+    public static void HideObject(this MonoBehaviour monoBehaviour)
+    {
+        if(monoBehaviour != null) monoBehaviour.gameObject.SetActive(false);
     }
 }

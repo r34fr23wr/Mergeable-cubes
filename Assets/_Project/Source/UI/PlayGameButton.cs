@@ -5,7 +5,7 @@ using Source.CubesBuilder;
 
 namespace Source.UI
 {
-    public class CoreLoaderButton : MonoBehaviour
+    public class PlayGameButton : MonoBehaviour
     {
         private Button _button;
 
@@ -17,6 +17,7 @@ namespace Source.UI
 
         public void LoadScene()
         {
+            ServiceLocator.Instance.Get<CoreStateObserver>().Configure();
             ServiceLocator.Instance.Get<CubesPool>().CreatePool();
             gameObject.SetActive(false);
         }

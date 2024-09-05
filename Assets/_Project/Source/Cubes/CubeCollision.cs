@@ -13,7 +13,10 @@ namespace Source.Cubes
         private void OnTriggerEnter(Collider other)
         {
             if(_movement.IsMoving && other.gameObject.TryGetComponent(out CubeCollision targer))
+            {
                 ServiceLocator.Instance.Get<CubesMergeHandler>().DoMerge(this, targer);
+                ServiceLocator.Instance.Get<CoreStateObserver>().OnCubesMerged();
+            }
         }
     }
 }

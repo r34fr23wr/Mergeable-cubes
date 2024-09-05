@@ -6,7 +6,7 @@ namespace Source.Cubes
 {
     public class CubeMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
-        public bool IsMoving { get; private set; } = false;
+        public bool IsMoving = false;
 
         private Camera _camera;
         private Vector3 _startPosition;
@@ -18,6 +18,8 @@ namespace Source.Cubes
             _vfx = new CubeVFX(transform);
             SetStartPosition(transform.position);
         }
+
+        private void OnDisable() => IsMoving = false;
 
         public void OnBeginDrag(PointerEventData eventData)
         {

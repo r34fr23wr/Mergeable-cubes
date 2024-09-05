@@ -26,12 +26,22 @@ namespace Source.CubesBuilder
         private void CreateCube(Transform spawnPoint)
         {
             Cube spawnedObject = Extensions.InstantiateObject(_prefab, spawnPoint.position, spawnPoint);
+            _spawnedCubes.Add(spawnedObject);
             spawnedObject.gameObject.SetActive(true);
         }
 
         public void ShowAllCubes()
         {
-            foreach(Cube cube in _spawnedCubes) cube.ShowObject();
+            for(int i=0; i<_spawnedCubes.Count; i++)
+            {
+                _spawnedCubes[i].transform.position = _spawnPoints[i].position;
+                _spawnedCubes[i].ShowObject();
+            }
+        }
+
+        public void HideAllCubes()
+        {
+            foreach(Cube cube in _spawnedCubes) cube.HideObject();
         }
     }
 }
