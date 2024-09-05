@@ -6,9 +6,10 @@ namespace Source.CubesBuilder
 {
     public class CubesMergeHandler : IService
     {
-        public void DoMerge(CubeCollision cubeToDesroy, CubeCollision cubeToMerge)
+        public void DoMerge(Cube cubeToDesroy, Cube cubeToMerge)
         {
             cubeToDesroy.HideObject();
+            ServiceLocator.Instance.Get<CubeBuilder>().Build(cubeToMerge);
         }
     }
 }

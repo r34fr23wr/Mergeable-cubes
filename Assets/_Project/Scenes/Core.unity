@@ -197,50 +197,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &114438502
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 114438504}
-  - component: {fileID: 114438503}
-  m_Layer: 0
-  m_Name: Coroutines
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &114438503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114438502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d2528303b64e945b03b89d5c9fc662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &114438504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114438502}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1646140599}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437265939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +961,7 @@ GameObject:
   - component: {fileID: 1646140599}
   - component: {fileID: 1646140598}
   m_Layer: 0
-  m_Name: CoreEntryPoint
+  m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1028,8 +984,13 @@ MonoBehaviour:
   - {fileID: 1731373168}
   - {fileID: 437265940}
   - {fileID: 1391218248}
-  _coroutines: {fileID: 114438503}
-  _cubePrefab: {fileID: 1857153635934974943, guid: 31da425dc63a6ca44998309055026d90, type: 3}
+  _materials:
+  - {fileID: 2100000, guid: fd437983169061c4283021630a291aeb, type: 2}
+  - {fileID: 2100000, guid: 3e7445b05c70395468f0e5388710b394, type: 2}
+  - {fileID: 2100000, guid: a4ead36dd6ad81e47a4115565b3a9d41, type: 2}
+  - {fileID: 2100000, guid: 6ca10ffdc3e99bb418422d4b436fed65, type: 2}
+  _playGameButton: {fileID: 1229383381}
+  _cubePrefab: {fileID: 270023667872366835, guid: 31da425dc63a6ca44998309055026d90, type: 3}
 --- !u!4 &1646140599
 Transform:
   m_ObjectHideFlags: 0
@@ -1042,8 +1003,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 114438504}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646946803

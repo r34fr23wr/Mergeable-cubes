@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Source.Infrastructure;
 using Source.Cubes;
 
 namespace Source.CubesBuilder
@@ -21,6 +22,8 @@ namespace Source.CubesBuilder
         {
             if(_spawnedCubes.Count == 0) for(int i=0; i<_spawnPoints.Length; i++) CreateCube(_spawnPoints[i]);
             else ShowAllCubes();
+
+            ConfigureCubes();
         }
 
         private void CreateCube(Transform spawnPoint)
@@ -43,5 +46,7 @@ namespace Source.CubesBuilder
         {
             foreach(Cube cube in _spawnedCubes) cube.HideObject();
         }
+
+        private void ConfigureCubes() => ServiceLocator.Instance.Get<CubeBuilder>().Build(_spawnedCubes);
     }
 }

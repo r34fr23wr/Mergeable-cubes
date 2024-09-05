@@ -8,12 +8,16 @@ namespace Source.Infrastructure
     public class CoreEntryPoint : MonoBehaviour, IService
     {
         [SerializeField] private Transform[] _spawnPoints;
+        [SerializeField] private Material[] _materials;
         [SerializeField] private PlayGameButton _playGameButton;
         [SerializeField] private Cube _cubePrefab;
 
         private void Awake()
         {
             ServiceLocator serviceLocator = new ServiceLocator();
+
+            CubeBuilder cubeBuilder = new CubeBuilder(_materials);
+            serviceLocator.Register(cubeBuilder);
 
             CoreStateObserver coreStateObserver = new CoreStateObserver(_spawnPoints.Length, _playGameButton.gameObject);
             coreStateObserver.Configure();
